@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="d-flex align-items-center justify-content-between mb-3 mt-3">
+        <h1>Create New Post</h1>
+        <a  (click)="goBack()"  class="btn btn-primary">Back</a>
+    </div>
+        
+    <form [formGroup]="form" (ngSubmit)="submit()" *ngIf="form">
+    
+        <div class="form-group">
+            <label for="title">Book Name:</label>
+            <input 
+                formControlName="bookName"
+                id="bookName" 
+                type="text" 
+                [(ngModel)]="post.bookName"
+                class="form-control">
+            <div *ngIf="f['bookName'].touched && f['bookName'].invalid" class="alert alert-danger">
+                <div *ngIf="f['bookName'].errors && f['bookName'].errors['required']">bookName is required.</div>
+            </div>
+        </div> 
+        <div class="form-group">
+            <label for="bookDesc">Book Desc:</label>
+            <input 
+                formControlName="bookDesc"
+                id="bookDesc" 
+                type="text" 
+                [(ngModel)]="post.bookDesc"
+                class="form-control">
+            <div *ngIf="f['bookDesc'].touched && f['bookDesc'].invalid" class="alert alert-danger">
+                <div *ngIf="f['bookDesc'].errors && f['bookDesc'].errors['required']">bookDesc is required.</div>
+            </div>
+        </div> 
+        <div class="form-group">
+            <label for="bookAuthor">Book Author:</label>
+            <input 
+                formControlName="bookAuthor"
+                id="bookAuthor" 
+                type="text" 
+                [(ngModel)]="post.bookAuthor"
+                class="form-control">
+            <div *ngIf="f['bookAuthor'].touched && f['bookAuthor'].invalid" class="alert alert-danger">
+                <div *ngIf="f['bookAuthor'].errors && f['bookAuthor'].errors['required']">bookAuthor is required.</div>
+            </div>
+        </div> 
+        <div class="form-group">
+            <label for="noOfPages">No of Pages:</label>
+            <input 
+                formControlName="noOfPages"
+                id="noOfPages" 
+                type="text"
+                [(ngModel)]="post.noOfPages"
+                class="form-control">
+            <div *ngIf="f['noOfPages'].touched && f['noOfPages'].invalid" class="alert alert-danger">
+                <div *ngIf="f['noOfPages'].errors && f['noOfPages'].errors['required']">noOfPages is required.</div>
+                <div *ngIf="f['noOfPages'].errors && f['noOfPages'].errors['pattern']">noOfPages must be a number.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="bookCategory">Book Category:</label>
+            <input 
+                formControlName="bookCategory"
+                id="bookCategory" 
+                type="text" 
+                [(ngModel)]="post.bookCategory"
+                class="form-control">
+            <div *ngIf="f['bookCategory'].touched && f['bookCategory'].invalid" class="alert alert-danger">
+                <div *ngIf="f['bookCategory'].errors && f['bookCategory'].errors['required']">bookCategory is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="bookPrice">Book Price:</label>
+            <input 
+                formControlName="bookPrice"
+                id="bookPrice" 
+                type="text" 
+                [(ngModel)]="post.bookPrice"
+                class="form-control">
+            <div *ngIf="f['bookPrice'].touched && f['bookPrice'].invalid" class="alert alert-danger">
+                <div *ngIf="f['bookPrice'].errors && f['bookPrice'].errors['required']">bookPrice is required.</div>
+                <div *ngIf="f['bookPrice'].errors && f['bookPrice'].errors['pattern']">bookPrice must be a number.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="releasedYear">Released Year:</label>
+            <input 
+                formControlName="releasedYear"
+                id="releasedYear" 
+                type="text" 
+                [(ngModel)]="post.releasedYear"
+                class="form-control">
+            <div *ngIf="f['releasedYear'].touched && f['releasedYear'].invalid" class="alert alert-danger">
+                <div *ngIf="f['releasedYear'].errors && f['releasedYear'].errors['required']">releasedYear is required.</div>
+                <div *ngIf="f['releasedYear'].errors && f['releasedYear'].errors['pattern']">releasedYear must be a number.</div>
+            </div>
+        </div>
+         
+        <button class="btn btn-primary mt-3" type="submit" [disabled]="!form.valid">Create</button>
+    </form>
+</div>
